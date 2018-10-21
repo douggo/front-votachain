@@ -28,7 +28,7 @@
                                     <a class="nav-link" href="menu-votacao.php">Votar</a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#">Contagens</a>
+                                    <a class="nav-link" href="menu-contagem.php">Contagens</a>
                                 </li> <?php
                                 if ($_SESSION["usuario_administrador"] == true) { ?>
                                     <li class="nav-item active">

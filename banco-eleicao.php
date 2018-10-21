@@ -37,9 +37,18 @@
 
 	function listaEleicoesAtivas($conexao) {
 		$eleicoes = array();
-		$resultado = mysqli_query($conexao,"select * from eleicoes where ativa = 1");
+		$resultado = mysqli_query($conexao, "select * from eleicoes where ativa = 1");
 		while ($eleicao = mysqli_fetch_assoc($resultado)) {
 			array_push($eleicoes, $eleicao);
 		}
 		return $eleicoes;
+	}
+
+	function listaEleicoesFinalizadas($conexao) {
+		$eleicoesFinalizadas = array();
+		$resultado = mysqli_query($conexao, "select * from eleicoes where ativa = 1 and finalizada = 1");
+		while($eleicaoFinalizada = mysqli_fetch_assoc($resultado)) {
+			array_push($eleicoesFinalizadas, $eleicaoFinalizada);
+		}
+		return $eleicoesFinalizadas;
 	}

@@ -26,7 +26,8 @@
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonEncodado);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); ?>
 		<p class="alert alert-success">Voto foi cadastrado com sucesso!</p>
-		<p class="d-none"><?=curl_exec($ch);?></p> <?php 
+		<p class="d-none"><?=curl_exec($ch);?></p> <?php
+		curl_close($ch); 
     } else {
     	$msg = mysqli_error($conexao); ?>
     	<p class="alert alert-danger">Erro ao cadastrar voto: <?= $msg ?></p> <?php
