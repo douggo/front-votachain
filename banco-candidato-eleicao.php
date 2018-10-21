@@ -26,3 +26,10 @@
 		}
 		return $candidatos;
 	}
+
+	function retornaCandidato($conexao, $id_candidato_eleicao) {
+		$query = "select * from candidato_eleicao where id = {$id_candidato_eleicao}";
+		$resultado = mysqli_query($conexao, $query);
+		$candidato = mysqli_fetch_assoc($resultado);
+		return $candidato;
+	}

@@ -1,6 +1,7 @@
 <?php 
 	require_once("cabecalho.php");
 	require_once("banco-usuario-eleicao.php");
+	require_once("banco-candidato-eleicao.php");
 	require_once("banco-votos.php");
 	require_once("usuario-session.php");
 
@@ -11,13 +12,15 @@
 	$id_usuario = $_POST["id_usuario"];
 	$id_eleicao = $_POST["id_eleicao"];
 	$id_candidato_eleicao = $_POST["id_candidato_eleicao"];
+	$candidato = retornaCandidato($conexao, $id_candidato_eleicao);
 
 	if(insereUsuarioEleicao($conexao, $id_usuario, $id_eleicao) && insereVoto($conexao, $id_candidato_eleicao)) { 
 		$api_url = 'http://localhost:8000/mine';
 		$ch = curl_init($api_url);
-		
+
 		$json = array(
-			'dado' => "{$id_candidato_eleicao}"
+			"id_eleicao" => $id_eleicao,
+			'id_candidato' =>  $candidato["id_candidato"],
 		);
 		
 		$jsonEncodado = json_encode($json);

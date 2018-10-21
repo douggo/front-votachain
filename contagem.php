@@ -24,7 +24,7 @@
     
     $i = 0;
     foreach($blockchain as $block) {
-        array_push($ids_candidatos_eleicoes, $blockchain->{$i}->{"dado"});
+        array_push($ids_candidatos_eleicoes, $blockchain->{$i}->{"id_eleicao"});
         $i = $i + 1;
     }
 
