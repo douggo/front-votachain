@@ -8,6 +8,7 @@
 	verificaUsuario();
 
     $i = 0;
+    $total = 0; 
     $id_eleicao = $_GET["id_eleicao"];
     $ids_candidatos_eleicoes = array();
     $votos = array();
@@ -46,18 +47,24 @@
     echo("</pre>");
     */
 
+    /*
     echo("<pre>");
     print_r("Bolsonaro: " . $candidato2 . " votos");
     echo("<br>");
     print_r("Haddad: " . $candidato3 . " votos");
     echo("</pre>");
+    */
 
-    /*
     $candidatos = listaCandidatosEleicao($conexao, $id_eleicao);
     foreach($candidatos as $candidato) {
-        echo ${"candidato" . $candidato["id"]};
-        teste
+        $total = $total + ${"candidato" . $candidato["id_candidato"]};
     }
-    */
+
+    echo("Total: " . $total . " votos cadastrados.");
+    echo("<br>");
+    foreach($candidatos as $candidato) {
+        echo($candidato["nome"] . ": " . ${"candidato" . $candidato["id_candidato"]} . " votos.");
+        echo("<br>");
+    }
 
 	include("rodape.php");
