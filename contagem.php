@@ -1,31 +1,63 @@
 <?php 
 	require_once("cabecalho.php");
-	require_once("banco-votos.php");
+    require_once("banco-votos.php");
+    require_once("banco-candidato-eleicao.php");
 	require_once("usuario-session.php");
-
 	header("Access-Control-Allow-Origin: *");
 
 	verificaUsuario();
 
+    $i = 0;
     $id_eleicao = $_GET["id_eleicao"];
     $ids_candidatos_eleicoes = array();
+    $votos = array();
     
     $api_url = 'http://localhost:8000/blocks';
     $ch = curl_init();
-
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_URL, $api_url);
-
     $result = curl_exec($ch);
     curl_close($ch);
 
     $blockchain = (object) json_decode($result);
-    
-    $i = 0;
+
+    /*
+    echo("<pre>");
+    print_r($blockchain);
+    echo("</pre>");
+    */
+
     foreach($blockchain as $block) {
-        array_push($ids_candidatos_eleicoes, $blockchain->{$i}->{"id_eleicao"});
-        $i = $i + 1;
+        if ($blockchain->{$i}->{"id_eleicao"} == $id_eleicao) {
+            $id = $blockchain->{$i}->{"id_candidato"};
+            if (!in_array($id, $votos)) {
+                ${"candidato" . $id} = 0;
+                array_push($votos, $id);
+            }
+            ${"candidato" . $id}++;
+        }
+        $i++;
     }
+
+    /*
+    echo("<pre>");
+    print_r($votos);
+    echo("</pre>");
+    */
+
+    echo("<pre>");
+    print_r("Bolsonaro: " . $candidato2 . " votos");
+    echo("<br>");
+    print_r("Haddad: " . $candidato3 . " votos");
+    echo("</pre>");
+
+    /*
+    $candidatos = listaCandidatosEleicao($conexao, $id_eleicao);
+    foreach($candidatos as $candidato) {
+        echo ${"candidato" . $candidato["id"]};
+        teste
+    }
+    */
 
 	include("rodape.php");
