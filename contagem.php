@@ -1,6 +1,7 @@
 <?php 
 	require_once("cabecalho.php");
     require_once("banco-votos.php");
+    require_once("banco-eleicao.php");
     require_once("banco-candidato-eleicao.php");
 	require_once("usuario-session.php");
 	header("Access-Control-Allow-Origin: *");
@@ -23,12 +24,6 @@
 
     $blockchain = (object) json_decode($result);
 
-    /*
-    echo("<pre>");
-    print_r($blockchain);
-    echo("</pre>");
-    */
-
     foreach($blockchain as $block) {
         if ($blockchain->{$i}->{"id_eleicao"} == $id_eleicao) {
             $id = $blockchain->{$i}->{"id_candidato"};
@@ -41,30 +36,29 @@
         $i++;
     }
 
-    /*
-    echo("<pre>");
-    print_r($votos);
-    echo("</pre>");
-    */
-
-    /*
-    echo("<pre>");
-    print_r("Bolsonaro: " . $candidato2 . " votos");
-    echo("<br>");
-    print_r("Haddad: " . $candidato3 . " votos");
-    echo("</pre>");
-    */
-
+    $eleicao = buscaEleicao($conexao, $id_eleicao);
     $candidatos = listaCandidatosEleicao($conexao, $id_eleicao);
+    
     foreach($candidatos as $candidato) {
         $total = $total + ${"candidato" . $candidato["id_candidato"]};
-    }
+    } ?>
 
-    echo("Total: " . $total . " votos cadastrados.");
-    echo("<br>");
-    foreach($candidatos as $candidato) {
-        echo($candidato["nome"] . ": " . ${"candidato" . $candidato["id_candidato"]} . " votos.");
-        echo("<br>");
-    }
+    <div class="container">
+        <h1 class="my-4"><?=$eleicao["descricao"]?>
+            <small><?=$eleicao["periodo"]?> | <?=$total?> votos</small>
+        </h1> <hr> <?php
+        foreach($candidatos as $candidato) { ?>
+            <div class="row">
+                <div class="col-md-7"><img class="img-fluid rounded mb-3 mb-md-0" src="<?=$candidato["foto"]?>" alt="imagem do candidato <?=$candidato["nome"]?>"></div>
+                    <div class="col-md-5 text-center" style="padding-top: 130px;">
+                        <h3><?=$candidato["nome"]?></h3>
+                        <p><?=$candidato["numero"]?></p>
+                        <p><?= ${"candidato" . $candidato["id_candidato"]} ?> votos (<?= number_format((${"candidato" . $candidato["id_candidato"]}/$total) * 100, 2)?>%)</p>
+                    </div>
+                </div>
+                <hr>
+            </div> <?php
+        } ?>
+    </div> <?php
 
 	include("rodape.php");
