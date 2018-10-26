@@ -3,8 +3,6 @@
 	require_once("banco-usuario.php");
 	require_once("usuario-session.php");
 
-	verificaAdministrador();
-
 	$nome = $_POST["nome"];
 	$email = $_POST["email"];
 	$senha = $_POST["senha"];
@@ -26,10 +24,13 @@
     } else {
     	$msg = mysqli_error($conexao); ?>
     	<p class="alert alert-danger">Erro ao cadastrar usuário <?= $nome; ?>: <?= $msg ?></p> <?php
-	} ?>
-
-	<a href="formulario-usuario.php" class="btn btn-info">Adicionar mais usuários?</a>
-	<a href="lista-usuarios.php" class="btn btn-info">Verificar usuários</a> <?php
+	} 
+	
+	if(usuarioEstaLogado()) { ?>
+		<a href="formulario-usuario.php" class="btn btn-info">Adicionar mais usuários?</a>
+		<a href="lista-usuarios.php" class="btn btn-info">Verificar usuários</a> <?php
+	} else { ?>
+		<a href="index.php" class="btn btn-info">Home</a> <?php
+	}
 	
 	include("rodape.php");
-?>

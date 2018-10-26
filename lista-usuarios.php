@@ -6,19 +6,19 @@
 	verificaAdministrador();
 
 	if (array_key_exists("removido", $_GET) && $_GET['removido'] == "true") { ?>
-		<p class="text-success">Produto removido com sucesso</p> <?php
+		<p class="text-success">Usuário desativado com sucesso</p> <?php
 	} ?>
 
 	<table class="table table-striped table-bordered"> 
-		<tr>
+		<tr class="text-center">
 			<td><strong>Usuário</strong></td>
 			<td><strong>E-mail</strong></td>
 			<td><strong>Alterar</strong></td>
-			<td><strong>Remover</strong></td>
+			<td><strong>Desativar</strong></td>
 		</tr> <?php
 		$usuarios = listaUsuarios($conexao); 
 		foreach($usuarios as $usuario) { ?>
-			<tr>
+			<tr class="text-center">
 				<td><?=$usuario['nome']?></td>
 				<td><?=$usuario['email']?></td>
 				<td>
@@ -27,7 +27,7 @@
 				<td>
 					<form action="remove-usuario.php?id=<?=$usuario['id']?>" method="POST">
 						<input type="hidden" name="id" value="<?=$usuario['id']?>">
-						<button class="btn btn-danger">remover</button>
+						<button class="btn btn-danger">Desativar</button>
 					</form>
 				</td>
 			</tr> <?php

@@ -10,7 +10,7 @@
 	} ?>
 
 	<table class="table table-striped table-bordered"> 
-		<tr>
+		<tr class="text-center">
 			<td><strong>Nome</strong></td>
 			<td><strong>Número</strong></td>
 			<td><strong>Foto</strong></td>
@@ -19,7 +19,7 @@
 		</tr> <?php
 		$candidatos = listaCandidatos($conexao); 
 		foreach($candidatos as $candidato) { ?>
-			<tr>
+			<tr class="text-center">
 				<td><?=$candidato['nome']?></td>
 				<td><?=$candidato['numero']?></td>
 				<td><?=$candidato['foto']?></td>

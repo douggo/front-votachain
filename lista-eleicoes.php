@@ -5,21 +5,21 @@
 
 	verificaAdministrador();
 
-	if (array_key_exists("removido", $_GET) && $_GET['removido'] == "true") { ?>
-		<p class="text-success">Eleição removida com sucesso</p> <?php
+	if (array_key_exists("finalizada", $_GET) && $_GET['finalizada'] == "true") { ?>
+		<p class="alert alert-success">Eleição finalizada com sucesso</p> <?php
 	} ?>
 
 	<table class="table table-striped table-bordered"> 
-		<tr>
+		<tr class="text-center">
 			<td><strong>Descrição</strong></td>
 			<td><strong>Período</strong></td>
 			<td><strong>Candidatos</strong></td>
 			<td><strong>Alterar</strong></td>
-			<td><strong>Remover</strong></td>
+			<td><strong>Finalizar</strong></td>
 		</tr> <?php
 		$eleicoes = listaEleicoes($conexao); 
 		foreach($eleicoes as $eleicao) { ?>
-			<tr>
+			<tr class="text-center">
 				<td><?=$eleicao['descricao']?></td>
 				<td><?=$eleicao['periodo']?></td>
 				<td>
@@ -29,9 +29,9 @@
 					<a href="formulario-altera-eleicao.php?id=<?=$eleicao['id']?>" class="btn btn-primary">Alterar</a>
 				</td>
 				<td>
-					<form action="remove-eleicao.php?id=<?=$eleicao['id']?>" method="POST">
+					<form action="finaliza-eleicao.php?id=<?=$eleicao['id']?>" method="POST">
 						<input type="hidden" name="id" value="<?=$eleicao['id']?>">
-						<button class="btn btn-danger">remover</button>
+						<button class="btn btn-danger">Finalizar</button>
 					</form>
 				</td>
 			</tr> <?php

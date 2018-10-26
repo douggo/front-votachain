@@ -8,6 +8,6 @@
 	$id_eleicao = $_POST['id_eleicao'];
 	$id_candidato = $_POST['id_candidato'];
 
-	removeUsuario($conexao, $id_eleicao, $id_candidato);
+	removeCandidatoEleicao($conexao, $id_eleicao, $id_candidato);
 	header("Location: lista-candidato-eleicao.php?id_eleicao=<?=$id_eleicao?>&removido=true");
 	die();

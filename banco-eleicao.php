@@ -7,16 +7,17 @@
 		return $resultado;
 	}
 
-	function removeEleicao($conexao, $id) {
-		$query = "delete from eleicoes where id = {$id}";
+	function finalizaEleicao($conexao, $id) {
+		$query = "update eleicoes set finalizada = 1 where id = {$id}";
 		return mysqli_query($conexao, $query);
 	}
 
-	function alteraEleicoes($conexao, $id, $periodo, $ativa) {
-		$query = "update produtos 
-					set periodo = '{$periodo}', 
-						ativa = {$ativa},  
-				  where id = {$id} ";
+	function alteraEleicao($conexao, $id, $descricao, $periodo, $ativa) {
+		$query = "update eleicoes
+				     set descricao = '{$descricao}', 
+						 periodo = '{$periodo}',
+						 ativa = {$ativa}  
+				   where id = {$id} ";
 		return mysqli_query($conexao, $query);
 	}
 	
@@ -28,7 +29,7 @@
 
 	function listaEleicoes($conexao) {
 		$eleicoes = array();
-		$resultado = mysqli_query($conexao,"select * from eleicoes");
+		$resultado = mysqli_query($conexao,"select * from eleicoes where ativa = 1");
 		while ($eleicao = mysqli_fetch_assoc($resultado)) {
 			array_push($eleicoes, $eleicao);
 		}
