@@ -36,7 +36,7 @@
 
         <tr>
             <td>Senha</td>
-            <td><input class="form-control" type="password" name="senha" value="<?=$usuario['senha']?>"></td>
+            <td><input class="form-control" type="password" name="senha" value=""></td>
         </tr>
         <tr>
             <td>

@@ -13,13 +13,7 @@
 		$administrador = "false";
 	}
 
-	if (array_key_exists("ativo", $_POST)) {
-		$ativo = "true";
-	} else {
-		$ativo = "false";
-	}
-
-	if(insereUsuario($conexao, $nome, $email, $senha, $administrador, $ativo)) { ?>
+	if(insereUsuario($conexao, $nome, $email, $senha, $administrador)) { ?>
     	<p class="alert alert-success">O usuário <?= $nome; ?> foi cadastrado com sucesso!</p> <?php 
     } else {
     	$msg = mysqli_error($conexao); ?>

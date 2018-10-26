@@ -5,8 +5,8 @@
 
 	verificaAdministrador();
 
-	if (array_key_exists("removido", $_GET) && $_GET['removido'] == "true") { ?>
-		<p class="text-success">Usuário desativado com sucesso</p> <?php
+	if (array_key_exists("desativado", $_GET) && $_GET['desativado'] == "true") { ?>
+		<p class="alert alert-success">Usuário desativado com sucesso</p> <?php
 	} ?>
 
 	<table class="table table-striped table-bordered"> 
@@ -25,7 +25,7 @@
 					<a href="formulario-altera-usuario.php?id=<?=$usuario['id']?>" class="btn btn-primary">Alterar</a>
 				</td>
 				<td>
-					<form action="remove-usuario.php?id=<?=$usuario['id']?>" method="POST">
+					<form action="desativa-usuario.php?id=<?=$usuario['id']?>" method="POST">
 						<input type="hidden" name="id" value="<?=$usuario['id']?>">
 						<button class="btn btn-danger">Desativar</button>
 					</form>
