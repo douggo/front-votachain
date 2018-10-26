@@ -24,7 +24,8 @@
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-info btn-md">Entrar</button>
-                                </div>
+                                </div> <br>
+                                <p id="registrar">Novo na Votachain? Clique <a href="cadastro.php">aqui</a> para se cadastrar</p>
                             </form>
                         </div>
                     </div>
