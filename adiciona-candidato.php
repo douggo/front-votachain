@@ -51,19 +51,13 @@
 	}
 
 	if(insereCandidato($conexao, $nome, $numero, $arquivo)) { ?>
-		<p class="alert alert-success">O candidato <?= $nome; ?> foi cadastrado com sucesso!</p> <br> <?php
-		echo("<pre>");
-			print_r($mensagens);
-		echo("</pre>"); 
+		<p class="alert alert-success">O candidato <?= $nome; ?> foi cadastrado com sucesso! </p> <?php  
     } else {
     	$msg = mysqli_error($conexao); ?>
-    	<p class="alert alert-danger">O candidato <?= $nome; ?> não foi cadastrado: <?= $msg ?></p> <?php
-		echo("<pre>");
-			print_r($mensagens);
-		echo("</pre>"); 
+    	<p class="alert alert-danger">O candidato <?= $nome; ?> não foi cadastrado: <?= $msg ?> </p>  <?php
 	} ?>
 
-	<a href="formulario-candidato.php" class="btn btn-info">Cadastrar mais candidatos?</a>
+	<a href="formulario-candidato.php" class="btn btn-info">Cadastrar mais candidatos</a>
 	<a href="lista-candidatos.php" class="btn btn-info">Verificar candidatos cadastrados</a> <?php
 	
 	include("rodape.php");

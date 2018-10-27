@@ -23,8 +23,7 @@
         </tr>
         <tr>
             <td>
-                <input type="checkbox" name="administrador" value="true"> Administrador <br>
-                <input type="checkbox" name="ativo" value="true"> Ativo
+                <input type="checkbox" name="administrador" value="true"> Administrador
             </td>
         </tr>
         <tr>

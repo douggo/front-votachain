@@ -21,10 +21,11 @@
 	} 
 	
 	if(usuarioEstaLogado()) { ?>
-		<a href="formulario-usuario.php" class="btn btn-info">Adicionar mais usuários?</a>
+		<a href="formulario-usuario.php" class="btn btn-info">Adicionar mais usuários</a>
 		<a href="lista-usuarios.php" class="btn btn-info">Verificar usuários</a> <?php
 	} else { ?>
-		<a href="index.php" class="btn btn-info">Home</a> <?php
+		<a href="index.php" class="btn btn-info">Home</a>
+		<a href="cadastro.php" class="btn btn-info">Voltar</a> <?php
 	}
 	
 	include("rodape.php");

@@ -2,11 +2,16 @@
 	require_once("conecta.php");
 
 	function insereUsuario($conexao, $nome, $email, $senha, $administrador) {
-		$senhacripto = md5($senha);
-		$query = "insert into usuarios (nome, email, senha, administrador) 
-								values ('{$nome}', '{$email}', '{$senhacripto}', {$administrador})";
-		$resultado = mysqli_query($conexao, $query);
-		return $resultado;
+		if ($nome == '' || $email == '' || $senha == '') {
+			return false;
+		}
+		else {
+			$senhacripto = md5($senha);
+			$query = "insert into usuarios (nome, email, senha, administrador) 
+								    values ('{$nome}', '{$email}', '{$senhacripto}', {$administrador})";
+			$resultado = mysqli_query($conexao, $query);
+			return $resultado;
+		}
 	}
 
 	function desativaUsuario($conexao, $id) {

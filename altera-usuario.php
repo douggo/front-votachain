@@ -23,10 +23,10 @@
 	}
 
 	if(alteraUsuario($conexao, $id, $nome, $email, $senha, $administrador, $ativo)) { ?>
-    	<p class="text-success">O usuário <?= $nome; ?> foi alterado com sucesso!</p> <?php 
+    	<p class="alert alert-success">O usuário <?= $nome; ?> foi alterado com sucesso!</p> <?php 
     } else {
     	$msg = mysqli_error($conexao); ?>
-    	<p class="text-danger">O usuário <?= $nome; ?> não foi alterado: <?= $msg ?></p> <?php
+    	<p class="alert alert-danger">O usuário <?= $nome; ?> não foi alterado: <?= $msg ?></p> <?php
 	} ?>
 
 	<a href="lista-usuarios.php" class="btn btn-info">Verificar usuários cadastrados</a>

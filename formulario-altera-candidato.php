@@ -10,7 +10,7 @@
 ?>
 
 <h1>Alterando candidato</h1>
-<form action="altera-candidato.php" method="POST">
+<form action="altera-candidato.php" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?=$candidato['id']?>" />
     <table class="table">
         <tr>
@@ -22,8 +22,9 @@
             <td><input class="form-control" type="number" name="numero" value="<?=$candidato['numero']?>" /></td>
         </tr>
         <tr>
-            <td>Foto</td>
-            <td><input class="form-control" type="file" name="foto" accept=".jpg" value="<?=$candidato['foto']?>" /></td>
+            <td>Foto de Perfil</td>
+            <td><input class="form-control" type="file" name="foto" accept=".jpg" /></td>
+            <input type="hidden" name="foto" value="<?=$candidato['foto']?>">
         </tr>
         <tr>
             <td><button class="btn btn-primary" type="submit">Alterar</button></td>

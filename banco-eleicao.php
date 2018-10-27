@@ -1,8 +1,9 @@
 <?php
 	require_once("conecta.php");
 
-	function insereEleicao($conexao, $descricao, $periodo, $ativa) {
-		$query = "insert into eleicoes (descricao, periodo, ativa) values ('{$descricao}', '{$periodo}', {$ativa})";
+	function insereEleicao($conexao, $descricao, $periodo) {
+		$query = "insert into eleicoes (descricao, periodo, finalizada, ativa) 
+				  values ('{$descricao}', '{$periodo}')";
 		$resultado = mysqli_query($conexao, $query);
 		return $resultado;
 	}

@@ -18,11 +18,6 @@
             <td><input class="form-control" type="text" name="periodo" /></td>
         </tr>
         <tr>
-            <td>
-                <input type="checkbox" name="ativa" value="true"> Ativa
-            </td>
-        </tr>
-        <tr>
             <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>
         </tr>
     </table>

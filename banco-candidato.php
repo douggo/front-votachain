@@ -7,13 +7,13 @@
 		return $resultado;
 	}
 
-	function removeCandidato($conexao, $id) {
-		$query = "delete from candidatos where id = {$id}";
+	function desativaCandidato($conexao, $id) {
+		$query = "update candidatos set ativo = 0 where id = {$id}";
 		return mysqli_query($conexao, $query);
 	}
 
 	function alteraCandidato($conexao, $id, $nome, $numero, $foto) {
-		$query = "update produtos 
+		$query = "update candidatos 
 					set nome = '{$nome}', 
 						numero = {$numero}, 
 						foto = '{$foto}'
@@ -29,7 +29,7 @@
 
 	function listaCandidatos($conexao) {
 		$candidatos = array();
-		$resultado = mysqli_query($conexao,"select * from candidatos");
+		$resultado = mysqli_query($conexao,"select * from candidatos where ativo = 1");
 		while ($candidato = mysqli_fetch_assoc($resultado)) {
 			array_push($candidatos, $candidato);
 		}
