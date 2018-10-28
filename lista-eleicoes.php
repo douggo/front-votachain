@@ -28,11 +28,15 @@
 				<td>
 					<a href="formulario-altera-eleicao.php?id=<?=$eleicao['id']?>" class="btn btn-primary">Alterar</a>
 				</td>
-				<td>
-					<form action="finaliza-eleicao.php?id=<?=$eleicao['id']?>" method="POST">
-						<input type="hidden" name="id" value="<?=$eleicao['id']?>">
-						<button class="btn btn-danger">Finalizar</button>
-					</form>
+				<td> <?php
+					if (!$eleicao["finalizada"]) { ?>
+						<form action="finaliza-eleicao.php?id=<?=$eleicao['id']?>" method="POST">
+							<input type="hidden" name="id" value="<?=$eleicao['id']?>">
+							<button class="btn btn-danger">Finalizar</button>
+						</form> <?php
+					} else { ?>
+						<button class="btn btn-danger" disabled>Finalizada</button> <?php
+					} ?>
 				</td>
 			</tr> <?php
 		} ?>

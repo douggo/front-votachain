@@ -8,6 +8,11 @@
 	$id_eleicao = $_POST['id_eleicao'];
 	$id_candidato = $_POST['id_candidato'];
 
-	removeCandidatoEleicao($conexao, $id_eleicao, $id_candidato);
-	header("Location: lista-candidato-eleicao.php?id_eleicao=<?=$id_eleicao?>&removido=true");
+	if (removeCandidatoEleicao($conexao, $id_eleicao, $id_candidato) && atualizaCandidato($conexao, 0, $id_candidato)) {
+		header("Location: lista-candidato-eleicao.php?id_eleicao={$id_eleicao}&removido=true");
+	} else { 
+		$mgs = mysqli_error($conexao); ?>
+		<p class="alert alert-danger"> <?= $msg ?> </p> <?php
+	}
+
 	die();

@@ -7,6 +7,12 @@
 		return $resultado;
 	}
 
+	function atualizaCandidato($conexao, $usado, $id_candidato) {
+		$query = "update candidatos set usado = {$usado} where id = {$id_candidato}";
+		$resultado = mysqli_query($conexao, $query);
+		return $resultado;
+	}
+
 	function removeCandidatoEleicao($conexao, $id_eleicao, $id_candidato) {
 		$query = "delete from candidato_eleicao 
 				  where id_eleicao = {$id_eleicao} and

@@ -21,7 +21,7 @@
             </table>
         </div> <?php
     } else { ?>
-        <h1 class="alert alert-info">Não há eleições ativas ou disponíveis, tente novamente mais tarde.</h1> <?php
+        <h1 class="alert alert-info">Ainda não há eleições finalizadas, tente novamente mais tarde.</h1> <?php
     }
 
     include("rodape.php");

@@ -7,7 +7,7 @@
     verificaAdministrador();
 
     if (array_key_exists("removido", $_GET) && $_GET['removido'] == "true") { ?>
-		<p class="text-success">Candidato removido com sucesso</p> <?php
+		<p class="alert alert-success">Candidato removido com sucesso</p> <?php
     } 
 
     $id_eleicao = $_GET["id_eleicao"];
@@ -32,7 +32,7 @@
                     <td>
                         <form action="remove-candidato-eleicao.php" method="POST">
                             <input type="hidden" name="id_eleicao" value="<?=$candidato['id_eleicao']?>">
-                            <input type="hidden" name="id_candidato" value="<?=$candidato['id']?>">
+                            <input type="hidden" name="id_candidato" value="<?=$candidato['id_candidato']?>">
                             <button class="btn btn-danger">Remover</button>
                         </form>
                     </td>

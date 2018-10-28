@@ -29,7 +29,7 @@
 
 	function listaCandidatos($conexao) {
 		$candidatos = array();
-		$resultado = mysqli_query($conexao,"select * from candidatos where ativo = 1");
+		$resultado = mysqli_query($conexao,"select * from candidatos where ativo = 1 and usado = 0");
 		while ($candidato = mysqli_fetch_assoc($resultado)) {
 			array_push($candidatos, $candidato);
 		}
