@@ -54,3 +54,9 @@
 		}
 		return $eleicoesFinalizadas;
 	}
+
+	function eleicaoAtiva($conexao, $id_eleicao) {
+		$query = "select * from eleicoes where id = {$id_eleicao} where ativa = 1";
+		$resultado = mysqli_query($conexao, $query);
+		return $resultado;
+	}

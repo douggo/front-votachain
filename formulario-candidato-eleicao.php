@@ -9,32 +9,34 @@
 
     $id_eleicao = $_GET["id_eleicao"];
     $eleicao = buscaEleicao($conexao, $id_eleicao);
-    $candidatos = listaCandidatos($conexao);
-?>
-
-<h1>Eleição: <?=$eleicao["descricao"]?> | <?=$eleicao["periodo"]?> </h1> <br>
-<form action="adiciona-candidato-eleicao.php" method="POST">
-    <table class="table">
-        <tr class="d-none">
-            <td><input type="hidden" name="id_eleicao" value="<?=$id_eleicao?>"><td>
-        </tr>
-        <tr>
-            <td>Candidatos</td>
-            <td>
-                <select name="id_candidato" class="form-control"> <?php
-                    foreach($candidatos as $candidato) { ?>
-                        <option value="<?=$candidato['id']?>">
-                            <?=$candidato['nome']?>
-                        </option> <?php
-                    } ?>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>
-        </tr>
-    </table>
-</form>
-
-<?php 
+    $candidatos = listaCandidatos($conexao); 
+    
+    if ($candidatos == null) { ?>
+        <h1 class="alert alert-info">Não há candidatos ativos disponíveis, cadastre-os!</h1> <?php
+    } else { ?>
+        <h1>Eleição: <?=$eleicao["descricao"]?> | <?=$eleicao["periodo"]?> </h1> <br>
+        <form action="adiciona-candidato-eleicao.php" method="POST">
+            <table class="table">
+                <tr class="d-none">
+                    <td><input type="hidden" name="id_eleicao" value="<?=$id_eleicao?>"><td>
+                </tr>
+                <tr>
+                    <td>Candidatos</td>
+                    <td>
+                        <select name="id_candidato" class="form-control"> <?php
+                            foreach($candidatos as $candidato) { ?>
+                                <option value="<?=$candidato['id']?>">
+                                    <?=$candidato['nome']?>
+                                </option> <?php
+                            } ?>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>
+                </tr>
+            </table>
+        </form> <?php
+    }
+    
     include("rodape.php");
