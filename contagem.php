@@ -53,7 +53,9 @@
                     <div class="col-md-5 text-center" style="padding-top: 130px;">
                         <h3><?=$candidato["nome"]?></h3>
                         <p><?=$candidato["numero"]?></p>
-                        <p><?= ${"candidato" . $candidato["id_candidato"]} ?> votos (<?= number_format((${"candidato" . $candidato["id_candidato"]}/$total) * 100, 2)?>%)</p>
+                        <p><?= ${"candidato" . $candidato["id_candidato"]} ?> 
+                            votos (<?= number_format((${"candidato" . $candidato["id_candidato"]}/$total) * 100, 2) ?>%)
+                        </p>
                     </div>
                 </div>
                 <hr>

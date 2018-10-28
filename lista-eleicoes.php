@@ -17,7 +17,7 @@
 			<td><strong>Alterar</strong></td>
 			<td><strong>Finalizar</strong></td>
 		</tr> <?php
-		$eleicoes = listaEleicoes($conexao); 
+		$eleicoes = listaEleicoes($conexao);
 		foreach($eleicoes as $eleicao) { ?>
 			<tr class="text-center">
 				<td><?=$eleicao['descricao']?></td>

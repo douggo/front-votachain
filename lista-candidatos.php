@@ -17,7 +17,7 @@
 			<td><strong>Alterar</strong></td>
 			<td><strong>Desativar</strong></td>
 		</tr> <?php
-		$candidatos = listaCandidatos($conexao); 
+		$candidatos = listaTodosCandidatos($conexao); 
 		foreach($candidatos as $candidato) { ?>
 			<tr class="text-center">
 				<td><?=$candidato['nome']?></td>

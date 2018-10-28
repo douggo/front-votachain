@@ -27,6 +27,15 @@
 		return mysqli_fetch_assoc($resultado);
 	}
 
+	function listaTodosCandidatos($conexao) {
+		$candidatos = array();
+		$resultado = mysqli_query($conexao,"select * from candidatos where ativo = 1");
+		while ($candidato = mysqli_fetch_assoc($resultado)) {
+			array_push($candidatos, $candidato);
+		}
+		return $candidatos;
+	}
+
 	function listaCandidatos($conexao) {
 		$candidatos = array();
 		$resultado = mysqli_query($conexao,"select * from candidatos where ativo = 1 and usado = 0");
