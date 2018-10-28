@@ -12,6 +12,7 @@
 		header("Location: lista-candidato-eleicao.php?id_eleicao={$id_eleicao}&removido=true");
 	} else { 
 		$mgs = mysqli_error($conexao); ?>
+		<script> swal("Candidato", "Erro ao remover candidato!", "error"); </script>
 		<p class="alert alert-danger"> <?= $msg ?> </p> <?php
 	}
 

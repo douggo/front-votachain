@@ -13,6 +13,7 @@
             <link href="css/votachain.css" rel="stylesheet" />
             <script src="js/jquery.min.js"></script>
             <script src="js/bootstrap.bundle.min.js"></script>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         </head>
         <body>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">

@@ -9,9 +9,11 @@
 	$periodo = $_POST["periodo"];
 
 	if(insereEleicao($conexao, $descricao, $periodo)) { ?>
+		<script> swal("Eleição", "Eleição cadastrada com sucesso!", "success"); </script>
     	<p class="alert alert-success">A eleição <?= $descricao ?> foi cadastrada com sucesso!</p> <?php 
     } else {
     	$msg = mysqli_error($conexao); ?>
+		<script> swal("Eleição", "Erro ao cadastrar eleição!", "error"); </script>
     	<p class="alert alert-danger">A eleição <?= $descricao ?> não foi cadastrada: <?= $msg ?></p> <?php
 	} ?>
 

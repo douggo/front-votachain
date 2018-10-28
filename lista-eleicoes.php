@@ -6,6 +6,7 @@
 	verificaAdministrador();
 
 	if (array_key_exists("finalizada", $_GET) && $_GET['finalizada'] == "true") { ?>
+		<script> swal("Eleição", "Eleição finalizada com sucesso!", "success"); </script>
 		<p class="alert alert-success">Eleição finalizada com sucesso</p> <?php
 	} ?>
 

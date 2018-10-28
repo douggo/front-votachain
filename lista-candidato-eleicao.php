@@ -7,7 +7,8 @@
     verificaAdministrador();
 
     if (array_key_exists("removido", $_GET) && $_GET['removido'] == "true") { ?>
-		<p class="alert alert-success">Candidato removido com sucesso</p> <?php
+		<script> swal("Candidato", "Candidato removido com sucesso!", "success"); </script>
+        <p class="alert alert-success">Candidato removido com sucesso</p> <?php
     } 
 
     $id_eleicao = $_GET["id_eleicao"];

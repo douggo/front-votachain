@@ -6,6 +6,7 @@
 	verificaAdministrador();
 
 	if (array_key_exists("desativado", $_GET) && $_GET['desativado'] == "true") { ?>
+		<script> swal("Usuário", "Usuário desativado com sucesso!", "success"); </script>
 		<p class="alert alert-success">Usuário desativado com sucesso</p> <?php
 	} ?>
 

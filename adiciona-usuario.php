@@ -14,9 +14,11 @@
 	}
 
 	if(insereUsuario($conexao, $nome, $email, $senha, $administrador)) { ?>
+		<script> swal("Usuário", "Usuário cadastrado com sucesso!", "success"); </script>
     	<p class="alert alert-success">O usuário <?= $nome; ?> foi cadastrado com sucesso!</p> <?php 
     } else {
     	$msg = mysqli_error($conexao); ?>
+		<script> swal("Usuário", "Erro ao cadastrar usuário!", "error"); </script>
     	<p class="alert alert-danger">Erro ao cadastrar usuário <?= $nome; ?>: <?= $msg ?></p> <?php
 	} 
 	
