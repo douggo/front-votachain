@@ -7,14 +7,14 @@
 
     function verificaUsuario() {
         if (!usuarioLogado()) {
-            header("Location: index.php");
+            echo "<script> location.replace('index.php'); </script>";
             die();
         }
     }
 
     function verificaAdministrador() {
         if (!usuarioAdministradorLogado()) {
-            header("Location: index.php");
+            echo "<script> location.replace('index.php'); </script>";
             die();
         }
     }

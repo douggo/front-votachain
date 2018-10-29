@@ -8,5 +8,5 @@
 	$id = $_POST['id'];
 
 	desativaCandidato($conexao, $id);
-	header("Location: lista-candidatos.php?desativado=true");
+	echo "<script> location.replace('lista-candidatos.php?desativado=true'); </script>";
 	die();

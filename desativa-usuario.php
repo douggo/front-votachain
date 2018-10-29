@@ -8,5 +8,5 @@
 	$id = $_POST['id'];
 
 	desativaUsuario($conexao, $id);
-	header("Location: lista-usuarios.php?desativado=true");
+	echo "<script> location.replace('lista-usuarios.php?desativado=true'); </script>";
 	die();

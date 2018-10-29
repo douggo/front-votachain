@@ -4,14 +4,13 @@
     require_once("banco-eleicao.php");
     require_once("banco-candidato-eleicao.php");
 	require_once("usuario-session.php");
-	header("Access-Control-Allow-Origin: *");
 
     verificaUsuario();
 
     $id_eleicao = $_GET["id_eleicao"];
     $eleicaoAtiva = eleicaoAtiva($conexao, $id_eleicao);
 
-    if ($eleicaoAtiva != null) {
+    if ($eleicaoAtiva->{"lengths"} != null) {
         $i = 0;
         $total = 0; 
         $ids_candidatos_eleicoes = array();
@@ -66,7 +65,7 @@
             } ?>
         </div> <?php
     } else {
-        header("Location: index.php");
+        echo "<script> location.replace('index.php'); </script>";
         die();
     }
 

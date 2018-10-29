@@ -8,5 +8,5 @@
 	$id = $_POST['id'];
 
 	finalizaEleicao($conexao,$id);
-	header("Location: lista-eleicoes.php?finalizada=true");
+	echo "<script> location.replace('lista-eleicoes.php?finalizada=true'); </script>";
 	die();

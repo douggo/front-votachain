@@ -16,7 +16,7 @@
     $candidatos = listaCandidatosEleicao($conexao, $id_eleicao);
 
     if ($candidatos == null) {
-        header("Location: formulario-candidato-eleicao.php?id_eleicao=$id_eleicao");
+        echo "<script> location.replace('formulario-candidato-eleicao.php?id_eleicao=$id_eleicao'); </script>";
         die();
     } else { ?>
         <h1>Eleição: <?=$eleicao["descricao"]?> | <?=$eleicao["periodo"]?></h1>

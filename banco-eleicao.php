@@ -56,7 +56,7 @@
 	}
 
 	function eleicaoAtiva($conexao, $id_eleicao) {
-		$query = "select * from eleicoes where id = {$id_eleicao} where ativa = 1";
+		$query = "select * from eleicoes where id = {$id_eleicao} and ativa = 1 and finalizada = 1";
 		$resultado = mysqli_query($conexao, $query);
 		return $resultado;
 	}

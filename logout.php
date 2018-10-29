@@ -2,6 +2,6 @@
     require_once("usuario-session.php");
 
     logout();
-    header("Location: index.php");
+    echo "<script> location.replace('index.php'); </script>";
     
     die();

@@ -9,7 +9,7 @@
 	$id_candidato = $_POST['id_candidato'];
 
 	if (removeCandidatoEleicao($conexao, $id_eleicao, $id_candidato) && atualizaCandidato($conexao, 0, $id_candidato)) {
-		header("Location: lista-candidato-eleicao.php?id_eleicao={$id_eleicao}&removido=true");
+		echo "<script>location.replace('lista-candidato-eleicao.php?id_eleicao={$id_eleicao}&removido=true'); </script>";
 	} else { 
 		$mgs = mysqli_error($conexao); ?>
 		<script> swal("Candidato", "Erro ao remover candidato!", "error"); </script>

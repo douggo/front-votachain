@@ -8,10 +8,10 @@
     $usuario = buscaUsuarioLogin($conexao, $email, $senha);
 
     if ($usuario == null) {
-        header("Location: index.php?login=false");
+        echo "<script> location.replace('index.php?login=false'); </script>";
     } else {
         logaUsuario($usuario["id"], $usuario["email"], $usuario["nome"], $usuario["administrador"]);
-        header("Location: index.php");
+        echo "<script> location.replace('index.php'); </script>";
     }
 
     die();

@@ -10,7 +10,7 @@
     $id_eleicao = $_GET["id_eleicao"];
     $votou = jaVotou($conexao, $_SESSION["usuario_id"], $id_eleicao);
     
-    if ($votou == null) {
+    if ($votou->{"lengths"} == null) {
         $eleicao = buscaEleicao($conexao, $id_eleicao);
         $candidatos = listaCandidatosEleicao($conexao, $id_eleicao); ?>
 
@@ -37,7 +37,7 @@
             } ?>
         </div> <?php
     } else {
-        header("Location: index.php");
+        echo "<script> location.replace('index.php'); </script>";
         die();
     }
      
