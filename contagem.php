@@ -10,10 +10,7 @@
     $id_eleicao = $_GET["id_eleicao"];
     $eleicaoAtiva = eleicaoAtiva($conexao, $id_eleicao);
 
-    var_dump($eleicaoAtiva);
-
     if ($eleicaoAtiva != 0) {
-        $i = 0;
         $total = 0; 
         $ids_candidatos_eleicoes = array();
         $votos = array();
@@ -29,15 +26,14 @@
         $blockchain = (object) json_decode($result);
 
         foreach($blockchain as $block) {
-            if ($blockchain->{$i}->{"id_eleicao"} == $id_eleicao) {
-                $id = $blockchain->{$i}->{"id_candidato"};
+            if ($block->{"id_eleicao"} == $id_eleicao) {
+                $id = $block->{"id_candidato"};
                 if (!in_array($id, $votos)) {
                     ${"candidato" . $id} = 0;
                     array_push($votos, $id);
                 }
                 ${"candidato" . $id}++;
             }
-            $i++;
         }
 
         $eleicao = buscaEleicao($conexao, $id_eleicao);

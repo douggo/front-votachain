@@ -5,8 +5,6 @@
 	require_once("banco-votos.php");
 	require_once("usuario-session.php");
 
-	header("Access-Control-Allow-Origin: *");
-
 	verificaUsuario();
 
 	$id_usuario = $_POST["id_usuario"];
