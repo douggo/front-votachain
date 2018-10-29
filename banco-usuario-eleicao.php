@@ -22,5 +22,6 @@
 					 where id_usuario = {$id_usuario} and 
 					       id_eleicao = {$id_eleicao}";
 		$resultado = mysqli_query($conexao, $query);
-		return $resultado;
+		$qtdLinhas = mysqli_num_rows($resultado);
+		return $qtdLinhas;
 	}

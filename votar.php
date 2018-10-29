@@ -9,8 +9,10 @@
     
     $id_eleicao = $_GET["id_eleicao"];
     $votou = jaVotou($conexao, $_SESSION["usuario_id"], $id_eleicao);
-    
-    if ($votou->{"lengths"} == null) {
+
+    var_dump($votou);
+
+    if ($votou == 0) {
         $eleicao = buscaEleicao($conexao, $id_eleicao);
         $candidatos = listaCandidatosEleicao($conexao, $id_eleicao); ?>
 
@@ -39,7 +41,7 @@
     } else {
         echo "<script> location.replace('index.php'); </script>";
         die();
-    }
+    } 
      
     include("rodape.php");
 

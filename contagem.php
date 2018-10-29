@@ -10,7 +10,9 @@
     $id_eleicao = $_GET["id_eleicao"];
     $eleicaoAtiva = eleicaoAtiva($conexao, $id_eleicao);
 
-    if ($eleicaoAtiva->{"lengths"} != null) {
+    var_dump($eleicaoAtiva);
+
+    if ($eleicaoAtiva != 0) {
         $i = 0;
         $total = 0; 
         $ids_candidatos_eleicoes = array();
