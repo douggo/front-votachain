@@ -63,11 +63,11 @@
 	}
 
 	if(alteraCandidato($conexao, $id, $nome, $numero, $arquivo)) { ?>
-		<script> swal("Candidato", "As informações do candidato foram alteradas com sucesso!", "success"); </script>
+		<script> swal("Sucesso", "As informações do candidato foram alteradas com sucesso!", "success"); </script>
     	<p class="alert alert-success">O candidato <?= $nome; ?> foi alterado com sucesso!</p> <?php 
     } else {
     	$msg = mysqli_error($conexao); ?>
-		<script> swal("Candidato", "Erro ao alterar as informações do candidato!", "error"); </script>
+		<script> swal("Erro", "Erro ao alterar as informações do candidato!", "error"); </script>
     	<p class="alert alert-success">O candidato <?= $nome; ?> não foi alterado: <?= $msg ?></p> <?php
 	} ?>
 

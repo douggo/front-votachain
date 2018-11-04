@@ -11,15 +11,15 @@
     <table class="table">
         <tr>
             <td>Nome</td>
-            <td><input class="form-control" type="text" name="nome" /></td>
+            <td><input class="form-control" type="text" name="nome"/></td>
         </tr>
         <tr>
             <td>E-mail</td>
-            <td><input class="form-control" type="email" name="email" /></td>
+            <td><input class="form-control" type="email" name="email"/></td>
         </tr>
         <tr>
             <td>Senha</td>
-            <td><input class="form-control" type="password" name="senha" /></td>
+            <td><input class="form-control" type="password" name="senha"/></td>
         </tr>
         <tr>
             <td>

@@ -7,7 +7,7 @@
     verificaAdministrador();
 
     if (array_key_exists("removido", $_GET) && $_GET['removido'] == "true") { ?>
-		<script> swal("Candidato", "Candidato removido com sucesso!", "success"); </script>
+		<script> swal("Sucesso", "Candidato removido com sucesso!", "success"); </script>
         <p class="alert alert-success">Candidato removido com sucesso</p> <?php
     } 
 

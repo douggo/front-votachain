@@ -23,11 +23,11 @@
 	}
 
 	if(alteraUsuario($conexao, $id, $nome, $email, $senha, $administrador, $ativo)) { ?>
-		<script> swal("Usuário", "As informações do usuário foram alteradas com sucesso!", "success"); </script>
+		<script> swal("Sucesso", "As informações do usuário foram alteradas com sucesso!", "success"); </script>
     	<p class="alert alert-success">O usuário <?= $nome; ?> foi alterado com sucesso!</p> <?php 
     } else {
     	$msg = mysqli_error($conexao); ?>
-		<script> swal("Usuário", "Erro ao alterar informações do usuário!", "error"); </script>
+		<script> swal("Erro", "Erro ao alterar informações do usuário!", "error"); </script>
     	<p class="alert alert-danger">O usuário <?= $nome; ?> não foi alterado: <?= $msg ?></p> <?php
 	} ?>
 

@@ -51,11 +51,11 @@
 	}
 
 	if(insereCandidato($conexao, $nome, $numero, $arquivo)) { ?>
-		<script> swal("Candidato", "Candidato cadastrado com sucesso!", "success"); </script>
+		<script> swal("Sucesso", "Candidato cadastrado com sucesso!", "success"); </script>
 		<p class="alert alert-success">O candidato <?= $nome; ?> foi cadastrado com sucesso! </p> <?php  
     } else {
     	$msg = mysqli_error($conexao); ?>
-		<script> swal("Candidato", "Erro ao cadastrar candidato!", "error"); </script>
+		<script> swal("Erro", "Erro ao cadastrar candidato!", "error"); </script>
     	<p class="alert alert-danger">O candidato <?= $nome; ?> não foi cadastrado: <?= $msg ?> </p>  <?php
 	} ?>
 

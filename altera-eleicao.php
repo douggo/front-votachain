@@ -16,11 +16,11 @@
 	}
 
 	if(alteraEleicao($conexao, $id, $descricao, $periodo, $ativa)) { ?>
-		<script> swal("Eleição", "As informações da eleição foram alteradas com sucesso!", "success"); </script>
+		<script> swal("Sucesso", "As informações da eleição foram alteradas com sucesso!", "success"); </script>
     	<p class="alert alert-success">A eleição <?= $descricao; ?> foi alterada com sucesso!</p> <?php 
     } else {
     	$msg = mysqli_error($conexao); ?>
-		<script> swal("Eleição", "Erro ao alterar as informações da eleição!", "error"); </script>
+		<script> swal("Erro", "Erro ao alterar as informações da eleição!", "error"); </script>
     	<p class="alert alert-danger">A eleição <?= $descricao; ?> não foi alterada: <?= $msg ?></p> <?php
 	} ?>
 

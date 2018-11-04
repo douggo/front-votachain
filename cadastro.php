@@ -3,19 +3,23 @@
     require_once("banco-usuario.php"); ?>
 
     <h1>Formulário de cadastro de usuários</h1> <br>
-    <form action="adiciona-usuario.php" method="POST">
+    <form action="adiciona-usuario-home.php" method="POST">
         <table class="table">
             <tr>
                 <td>Nome</td>
-                <td><input class="form-control" type="text" name="nome" /></td>
+                <td><input class="form-control" type="text" name="nome" required/></td>
             </tr>
             <tr>
                 <td>E-mail</td>
-                <td><input class="form-control" type="email" name="email" /></td>
+                <td><input class="form-control" type="email" name="email" required/></td>
             </tr>
             <tr>
                 <td>Senha</td>
-                <td><input class="form-control" type="password" name="senha" /></td>
+                <td><input class="form-control" type="password" name="senha" required/></td>
+            </tr>
+            <tr>
+                <td>Confirme sua senha</td>
+                <td><input class="form-control" type="password" name="confirmacao" required/></td>
             </tr>
             <tr>
                 <td><button class="btn btn-primary" type="submit">Cadastrar</button></td>

@@ -9,11 +9,11 @@
 	$id_candidato = $_POST["id_candidato"];
 
 	if (insereCandidatoEleicao($conexao, $id_eleicao, $id_candidato) && atualizaCandidato($conexao, 1, $id_candidato)) { ?>
-    	<script> swal("Candidato", "Candidato cadastrado com sucesso", "success"); </script>
+    	<script> swal("Sucesso", "Candidato cadastrado com sucesso", "success"); </script>
 		<p class="alert alert-success">Candidato cadastrado com sucesso!</p> <?php 
     } else {
     	$msg = mysqli_error($conexao); ?>
-		<script> swal("Candidato", "Erro ao cadastrar candidato!", "error"); </script>
+		<script> swal("Erro", "Erro ao cadastrar candidato!", "error"); </script>
     	<p class="alert alert-danger">Candidato não foi cadastrado: <?= $msg ?></p> <?php
 	} ?>
 

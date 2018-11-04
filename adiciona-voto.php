@@ -26,13 +26,13 @@
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonEncodado);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); ?>
-		<script> swal("Voto", "Voto computado com sucesso!", "success"); </script>
+		<script> swal("Sucesso", "Voto computado com sucesso!", "success"); </script>
 		<p class="alert alert-success">Voto foi cadastrado com sucesso!</p>
 		<p class="d-none"><?=curl_exec($ch);?></p> <?php
 		curl_close($ch); 
     } else {
     	$msg = mysqli_error($conexao); ?>
-		<script> swal("Voto", "Não foi possível computador voto!", "error"); </script>
+		<script> swal("Erro", "Não foi possível computador voto!", "error"); </script>
     	<p class="alert alert-danger">Erro ao cadastrar voto: <?= $msg ?></p> <?php
 	} ?>
 
