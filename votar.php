@@ -9,12 +9,18 @@
     
     $id_eleicao = $_GET["id_eleicao"];
     $votou = jaVotou($conexao, $_SESSION["usuario_id"], $id_eleicao);
-
-    var_dump($votou);
-
+    
     if ($votou == 0) {
         $eleicao = buscaEleicao($conexao, $id_eleicao);
         $candidatos = listaCandidatosEleicao($conexao, $id_eleicao); ?>
+
+        <script>
+            $(document).ready(function() {
+                $("#votar").click(function() {
+                    $("#votar").attr("disabled", "disabled");
+                });
+            });
+        </script>
 
         <div class="container">
             <h1 class="my-4"><?=$eleicao["descricao"]?>
@@ -30,7 +36,7 @@
                                 <input type="hidden" name="id_usuario" value="<?=$_SESSION["usuario_id"]?>">
                                 <input type="hidden" name="id_eleicao" value="<?=$id_eleicao?>">
                                 <input type="hidden" name="id_candidato_eleicao" value="<?=$candidato['id']?>">
-                                <button class="btn btn-success">Votar</button>
+                                <button class="btn btn-success" id="votar">Votar</button>
                             </form>
                         </div>
                     </div>
