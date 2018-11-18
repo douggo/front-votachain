@@ -15,7 +15,7 @@
         $ids_candidatos_eleicoes = array();
         $votos = array();
         
-        $api_url = 'http://localhost:8000/blocks';
+        $api_url = 'http://localhost:3001/blocks';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

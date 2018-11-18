@@ -13,7 +13,7 @@
 	$candidato = retornaCandidato($conexao, $id_candidato_eleicao);
 
 	if(insereUsuarioEleicao($conexao, $id_usuario, $id_eleicao) && insereVoto($conexao, $id_candidato_eleicao)) { 
-		$api_url = 'http://localhost:8000/mine';
+		$api_url = 'http://localhost:3001/mine';
 		$ch = curl_init($api_url);
 
 		$json = array(
