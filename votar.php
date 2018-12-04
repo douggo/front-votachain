@@ -13,15 +13,6 @@
     if ($votou == 0) {
         $eleicao = buscaEleicao($conexao, $id_eleicao);
         $candidatos = listaCandidatosEleicao($conexao, $id_eleicao); ?>
-
-        <script>
-            $(document).ready(function() {
-                $("#votar").click(function() {
-                    $("#votar").attr("disabled", "disabled");
-                });
-            });
-        </script>
-
         <div class="container">
             <h1 class="my-4"><?=$eleicao["descricao"]?>
                 <small><?=$eleicao["periodo"]?></small>
